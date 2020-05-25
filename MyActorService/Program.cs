@@ -29,7 +29,7 @@ namespace MyActorService
                             // Register MyActor actor type
                             actorRuntime.RegisterActor<MyActor>();
                         })
-                        .UseUrls($"http://localhost:{AppChannelHttpPort}/");
+                    .UseUrls($"http://localhost:{AppChannelHttpPort}/");
                 });
     }
 }

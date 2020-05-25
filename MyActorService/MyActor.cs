@@ -28,7 +28,6 @@ namespace MyActorService
             Console.WriteLine($"Activating actor id: {this.Id}");
             return Task.CompletedTask;
         }
-
         /// <summary>
         /// This method is called whenever an actor is deactivated after a period of inactivity.
         /// </summary>
