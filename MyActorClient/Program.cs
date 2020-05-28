@@ -29,10 +29,23 @@ namespace MyActorClient
                 PropertyA = "ValueA",
                 PropertyB = "ValueB",
             });
-            Console.WriteLine(response);
 
-            var savedData = await proxy.GetDataAsync();
-            Console.WriteLine(savedData);
+            var proxy2 = ActorProxy.Create<IMyActor>(new ActorId("2"), actorType);
+            await proxy2.SetDataAsync(new MyData()
+            {
+                PropertyA = "Valuec",
+                PropertyB = "Valued",
+            });
+
+            for (int i = 0; i < 10; i++)
+            {
+                var savedData = await proxy.GetDataAsync();
+                Console.WriteLine(savedData);
+
+                var savedData2 = await proxy2.GetDataAsync();
+                Console.WriteLine(savedData2);
+            }
+            
         }
     }
 }
